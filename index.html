@@ -28,7 +28,7 @@
   html { scroll-behavior: smooth; }
   body { font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif; background: #f8f6f0; color: var(--text-dark); overflow-x: hidden; }
 
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(10,40,50,0.92); backdrop-filter: blur(12px); padding: 12px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid rgba(122,200,227,0.3); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: rgba(8,32,42,0.97); padding: 12px 5%; display: flex; align-items: center; justify-content: space-between; border-bottom: 2px solid rgba(122,200,227,0.3); }
   .nav-logo img { height: 36px; }
   .nav-links { display: flex; gap: 32px; list-style: none; }
   .nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; font-size: 14px; letter-spacing: 0.5px; position: relative; transition: color 0.3s; }
@@ -43,8 +43,8 @@
   .hero-deco-circle { position: absolute; border-radius: 50%; opacity: 0.08; background: radial-gradient(circle, var(--teal-light), transparent); }
   .hero-deco-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; right: -100px; }
   .hero-deco-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; left: -80px; background: radial-gradient(circle, #f9e04b, transparent); }
-  .float-deco { position: absolute; animation: floatUp var(--dur, 5s) ease-in-out var(--delay, 0s) infinite; opacity: 0.15; pointer-events: none; user-select: none; }
-  @keyframes floatUp { 0%,100% { transform: translateY(0) rotate(0deg); } 50% { transform: translateY(-20px) rotate(10deg); } }
+  .float-deco { position: absolute; animation: floatUp var(--dur, 5s) ease-in-out var(--delay, 0s) infinite; opacity: 0.15; pointer-events: none; user-select: none; will-change: transform; }
+  @keyframes floatUp { 0%,100% { transform: translate3d(0,0,0) rotate(0deg); } 50% { transform: translate3d(0,-20px,0) rotate(10deg); } }
   .hero-content { position: relative; z-index: 2; padding: 120px 8% 80px; max-width: 1200px; margin: 0 auto; width: 100%; }
   .hero-badge { display: inline-block; background: rgba(249,224,75,0.15); border: 1px solid rgba(249,224,75,0.4); color: var(--chalk-yellow); padding: 6px 18px; border-radius: 20px; font-size: 13px; letter-spacing: 2px; margin-bottom: 28px; animation: fadeInDown 0.8s ease; }
   .hero-title { font-size: clamp(48px, 8vw, 90px); font-weight: 900; color: var(--white); line-height: 1.0; margin-bottom: 12px; animation: fadeInUp 0.8s ease 0.2s both; }
@@ -61,7 +61,7 @@
   .hero-blackboard::before { content: ''; position: absolute; inset: 6px; border: 1px solid rgba(255,255,255,0.06); border-radius: 1px; pointer-events: none; }
   .bb-doodle { position: absolute; opacity: 0.18; pointer-events: none; }
   .bb-star { top: 14px; right: 20px; }
-  .chalk-dust { position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.6); border-radius: 50%; pointer-events: none; animation: dustFloat var(--dd, 4s) ease-in-out var(--ddelay, 0s) infinite; }
+  .chalk-dust { position: absolute; width: 3px; height: 3px; background: rgba(255,255,255,0.6); border-radius: 50%; pointer-events: none; animation: dustFloat var(--dd, 4s) ease-in-out var(--ddelay, 0s) infinite; will-change: transform, opacity; }
   @keyframes dustFloat { 0% { transform: translate(0,0) scale(1); opacity: 0.6; } 50% { transform: translate(var(--dx,5px), -12px) scale(0.6); opacity: 0.3; } 100% { transform: translate(var(--dx2,8px), -24px) scale(0); opacity: 0; } }
   .bb-activity-pills { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
   .bb-pill { font-size: 11px; padding: 4px 10px; border: 1px solid rgba(255,255,255,0.25); border-radius: 20px; color: rgba(255,255,255,0.7); letter-spacing: 0.3px; transition: all 0.3s; cursor: default; }
@@ -80,10 +80,7 @@
   .chalk-list { list-style: none; margin-top: 8px; }
   .chalk-list li { color: rgba(255,255,255,0.75); font-size: 13px; padding: 4px 0; display: flex; align-items: center; gap: 8px; }
   .chalk-list li::before { content: '✓'; color: var(--chalk-yellow); font-size: 11px; }
-  .board-tray { position: absolute; bottom: -12px; left: -8px; right: -8px; height: 20px; background: linear-gradient(var(--wood-light), var(--wood)); border-radius: 0 0 4px 4px; display: flex; align-items: center; padding: 0 12px; gap: 6px; }
-  .chalk-piece { width: 20px; height: 6px; background: rgba(255,255,255,0.7); border-radius: 3px; }
-  .chalk-piece:nth-child(2) { width: 14px; background: rgba(249,224,75,0.7); }
-  .chalk-piece:nth-child(3) { width: 16px; background: rgba(126,200,227,0.7); }
+  .board-tray { position: absolute; bottom: -16px; left: -8px; right: -8px; height: 26px; background: linear-gradient(var(--wood-light), var(--wood)); border-radius: 0 0 4px 4px; display: flex; align-items: center; padding: 2px 14px; gap: 14px; }
   .scroll-indicator { position: absolute; bottom: 36px; left: 50%; transform: translateX(-50%); display: flex; flex-direction: column; align-items: center; gap: 8px; color: rgba(255,255,255,0.4); font-size: 11px; letter-spacing: 2px; animation: bounce 2s infinite; }
   .scroll-indicator::after { content: ''; width: 1px; height: 40px; background: linear-gradient(rgba(255,255,255,0.4), transparent); }
   @keyframes bounce { 0%,100% { transform: translateX(-50%) translateY(0); } 50% { transform: translateX(-50%) translateY(8px); } }
@@ -106,7 +103,7 @@
   #calendar::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 8px; background: linear-gradient(90deg, var(--grass), #6abf5e, var(--grass)); }
   .calendar-inner { max-width: 1100px; margin: 0 auto; }
   .month-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 20px; }
-  .month-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.07); transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1); cursor: pointer; position: relative; }
+  .month-card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 4px 16px rgba(0,0,0,0.07); transition: transform 0.35s cubic-bezier(0.34, 1.56, 0.64, 1), box-shadow 0.35s ease; cursor: pointer; position: relative; will-change: transform; }
   .month-card:hover { transform: translateY(-8px) rotate(-0.5deg); box-shadow: 0 20px 40px rgba(0,0,0,0.15); }
   .month-card.empty { background: #f0ede6; opacity: 0.6; }
   .month-card-header { padding: 18px 20px; display: flex; align-items: center; justify-content: space-between; }
@@ -141,7 +138,7 @@
   .tab-content { display: none; }
   .tab-content.active { display: block; }
   .gallery-grid { display: grid; grid-template-columns: repeat(12, 1fr); gap: 16px; }
-  .gallery-item { border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; background: #eee; }
+  .gallery-item { border-radius: 12px; overflow: hidden; position: relative; cursor: pointer; background: #eee; will-change: transform; }
   .gallery-item .overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%); opacity: 0; transition: opacity 0.3s; display: flex; align-items: flex-end; padding: 16px; }
   .gallery-item:hover .overlay { opacity: 1; }
   .overlay-text { color: white; font-size: 14px; font-weight: 600; }
@@ -155,6 +152,44 @@
   .medium .gallery-placeholder { aspect-ratio: 4/3; }
   .small .gallery-placeholder { aspect-ratio: 1/1; }
   .wide .gallery-placeholder { aspect-ratio: 21/9; }
+
+  .gallery-note { text-align: center; margin-top: 20px; color: #bbb; font-size: 13px; }
+
+  .coming-soon-card {
+    border-radius: 16px; overflow: hidden;
+    background: linear-gradient(135deg, #f8f5f0 0%, #f0ebe3 100%);
+    border: 2px dashed #ddd;
+    min-height: 360px;
+    display: flex; align-items: center; justify-content: center;
+    position: relative;
+  }
+  .coming-soon-card::before {
+    content: '';
+    position: absolute; inset: 0;
+    background-image: radial-gradient(circle, rgba(10,102,128,0.04) 1px, transparent 1px);
+    background-size: 28px 28px;
+  }
+  .cs-inner { text-align: center; padding: 48px 32px; position: relative; z-index: 1; }
+  .cs-emoji { font-size: 72px; display: block; margin-bottom: 20px; animation: csFloat 3s ease-in-out infinite; }
+  @keyframes csFloat { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-10px); } }
+  .cs-title { font-size: 22px; font-weight: 800; color: var(--text-dark); margin-bottom: 8px; }
+  .cs-subtitle { font-size: 14px; color: #888; margin-bottom: 24px; line-height: 1.6; }
+  .cs-badge {
+    display: inline-block;
+    background: var(--teal); color: white;
+    padding: 8px 22px; border-radius: 30px;
+    font-size: 13px; font-weight: 600; letter-spacing: 0.5px;
+    margin-bottom: 28px;
+  }
+  .cs-dots { display: flex; gap: 8px; justify-content: center; }
+  .cs-dots span {
+    width: 8px; height: 8px; border-radius: 50%;
+    background: var(--teal); opacity: 0.25;
+    animation: csDot 1.4s ease-in-out infinite;
+  }
+  .cs-dots span:nth-child(2) { animation-delay: 0.2s; }
+  .cs-dots span:nth-child(3) { animation-delay: 0.4s; }
+  @keyframes csDot { 0%,80%,100% { opacity: 0.2; transform: scale(0.8); } 40% { opacity: 1; transform: scale(1.2); } }
 
   .album-card {
     display: block;
@@ -228,7 +263,7 @@
   .playground-text h2 { font-size: clamp(28px, 4vw, 44px); font-weight: 900; color: white; line-height: 1.2; margin-bottom: 16px; }
   .playground-text p { color: rgba(255,255,255,0.75); font-size: 15px; line-height: 1.7; max-width: 460px; }
   .upcoming-events { display: flex; flex-direction: column; gap: 12px; min-width: 260px; }
-  .upcoming-event { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; transition: all 0.3s; }
+  .upcoming-event { background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.2); border-radius: 10px; padding: 16px 20px; display: flex; align-items: center; gap: 16px; transition: background 0.3s, transform 0.3s; }
   .upcoming-event:hover { background: rgba(255,255,255,0.18); transform: translateX(6px); }
   .event-month { font-size: 11px; letter-spacing: 1px; color: rgba(255,255,255,0.6); }
   .event-name { font-size: 15px; font-weight: 700; color: white; }
@@ -239,8 +274,8 @@
   .year-word-left .section-tag { color: var(--chalk-yellow); background: rgba(249,224,75,0.1); }
   .year-word-left .section-title { color: var(--white); }
   .year-word-left .section-desc { color: rgba(255,255,255,0.6); }
-  .big-word-display { font-size: clamp(100px, 18vw, 180px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(249,224,75,0.6); line-height: 1; letter-spacing: 20px; text-align: center; position: relative; animation: wordGlow 3s ease-in-out infinite; }
-  @keyframes wordGlow { 0%,100% { -webkit-text-stroke: 2px rgba(249,224,75,0.6); filter: none; } 50% { -webkit-text-stroke: 2px rgba(249,224,75,1); filter: drop-shadow(0 0 20px rgba(249,224,75,0.5)); } }
+  .big-word-display { font-size: clamp(100px, 18vw, 180px); font-weight: 900; color: transparent; -webkit-text-stroke: 2px rgba(249,224,75,0.6); line-height: 1; letter-spacing: 20px; text-align: center; position: relative; animation: wordGlow 3s ease-in-out infinite; will-change: opacity; }
+  @keyframes wordGlow { 0%,100% { -webkit-text-stroke: 2px rgba(249,224,75,0.6); opacity: 0.85; } 50% { -webkit-text-stroke: 2px rgba(249,224,75,1); opacity: 1; } }
   .year-word-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 32px; }
   .word-card { background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 8px; padding: 20px; transition: all 0.3s; }
   .word-card:hover { background: rgba(249,224,75,0.1); border-color: rgba(249,224,75,0.3); transform: translateY(-4px); }
@@ -413,10 +448,32 @@
       </div>
     </div>
     <div class="board-tray">
-      <div class="chalk-piece"></div>
-      <div class="chalk-piece"></div>
-      <div class="chalk-piece"></div>
-      <div class="chalk-piece"></div>
+      <!-- 板擦 -->
+      <svg width="42" height="22" viewBox="0 0 42 22" fill="none">
+        <rect x="0" y="12" width="42" height="8" rx="1.5" fill="#b5915a"/>
+        <rect x="0" y="12" width="42" height="3" rx="1" fill="#c9a46a"/>
+        <rect x="2" y="3" width="38" height="11" rx="2" fill="#d4cfc8"/>
+        <rect x="2" y="3" width="38" height="4" rx="2" fill="#e8e3dc"/>
+        <line x1="2" y1="6" x2="40" y2="6" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+        <line x1="2" y1="9" x2="40" y2="9" stroke="rgba(0,0,0,0.06)" stroke-width="1"/>
+        <rect x="5" y="5" width="14" height="5" rx="1" fill="rgba(255,255,255,0.35)"/>
+        <rect x="24" y="6" width="12" height="3" rx="1" fill="rgba(255,255,255,0.2)"/>
+      </svg>
+      <!-- 白色粉筆（橫躺）- 完整版含尖端 -->
+      <svg width="52" height="12" viewBox="0 0 52 12" fill="none">
+        <!-- 尖端 -->
+        <polygon points="0,3 0,9 7,6" fill="#c8c4be"/>
+        <!-- 主體圓柱 -->
+        <rect x="7" y="1" width="40" height="10" rx="2" fill="#f0ece6"/>
+        <!-- 上方高光 -->
+        <rect x="9" y="2" width="36" height="3" rx="1" fill="rgba(255,255,255,0.55)"/>
+        <!-- 下方陰影 -->
+        <rect x="9" y="9" width="36" height="1.5" rx="0.5" fill="rgba(0,0,0,0.07)"/>
+        <!-- 尾端平面 -->
+        <rect x="47" y="1" width="4" height="10" rx="1" fill="#dedad4"/>
+        <!-- 粉筆灰 -->
+        <rect x="7" y="4" width="8" height="4" rx="1" fill="rgba(255,255,255,0.4)"/>
+      </svg>
     </div>
   </div>
 
@@ -451,11 +508,11 @@
     <div class="section-header reveal">
       <div class="section-tag">📸 精彩回顧</div>
       <h2 class="section-title">每一刻都是<em> 珍貴回憶</em></h2>
-      <p class="section-desc">點選各活動，重溫那些歡笑與感動的瞬間</p>
+      <p class="section-desc">點選相簿，重溫那些歡笑與感動的瞬間</p>
     </div>
+
     <div class="highlights-tabs" id="highlightsTabs">
-      <button class="tab-btn active" data-tab="all">全部活動</button>
-      <button class="tab-btn" data-tab="m3">3月 猜謎活動</button>
+      <button class="tab-btn active" data-tab="m3">3月 元宵同學會</button>
       <button class="tab-btn" data-tab="m5">5月 大地遊戲</button>
       <button class="tab-btn" data-tab="m6">6月 創意體驗</button>
       <button class="tab-btn" data-tab="m8">8月 KTV</button>
@@ -463,50 +520,19 @@
       <button class="tab-btn" data-tab="m11">11月 家庭日</button>
       <button class="tab-btn" data-tab="m12">12月 聖誕節</button>
     </div>
-    <div id="gallery-all" class="tab-content active">
-      <div class="gallery-grid">
-        <div class="gallery-item large" style="display:flex;flex-direction:column;">
-          <a href="https://drive.google.com/drive/folders/1Hb2eRJXXKnOMB81J83SKpOANLcfey_vV" target="_blank" class="album-card" style="height:100%;display:flex;flex-direction:column;">
-            <div class="album-preview-grid" style="flex:1;grid-template-rows:1fr 1fr;">
-              <div class="preview-cell preview-main">
-                <img src="./assets/images/march-01.jpg" alt="元宵同學會">
-              </div>
-              <div class="preview-cell">
-                <img src="./assets/images/march-02.jpg" alt="元宵同學會">
-              </div>
-              <div class="preview-cell" style="position:relative;">
-                <img src="./assets/images/march-03.jpg" alt="元宵同學會">
-                <div class="preview-count-overlay">查看全部 →</div>
-              </div>
-            </div>
-            <div class="album-card-footer">
-              <div class="album-footer-left">
-                <div class="album-footer-title">🧩 3月 · 元宵同學會</div>
-                <div class="album-footer-sub">吃湯圓搶紅包</div>
-              </div>
-              <div class="album-footer-btn">開啟相簿 →</div>
-            </div>
-          </a>
-        </div>
-        <div class="gallery-item medium" onclick="openLightboxActivity('KTV 音樂課')"><div class="gallery-placeholder"><div class="icon">🎤</div><div>8月 KTV 音樂課</div></div><div class="overlay"><span class="overlay-text">8月 · KTV 音樂課</span></div></div>
-        <div class="gallery-item small" onclick="openLightboxActivity('運動會')"><div class="gallery-placeholder"><div class="icon">🏅</div><div>10月 運動會</div></div><div class="overlay"><span class="overlay-text">10月 · 運動會</span></div></div>
-        <div class="gallery-item small" onclick="openLightboxActivity('家庭日')"><div class="gallery-placeholder"><div class="icon">👨‍👩‍👧‍👦</div><div>11月 家庭日</div></div><div class="overlay"><span class="overlay-text">11月 · 家庭日生存遊戲</span></div></div>
-        <div class="gallery-item small" onclick="openLightboxActivity('大地遊戲')"><div class="gallery-placeholder"><div class="icon">🗺️</div><div>5月 大地遊戲</div></div><div class="overlay"><span class="overlay-text">5月 · 大地遊戲闖關</span></div></div>
-        <div class="gallery-item wide" onclick="openLightboxActivity('創意體驗')"><div class="gallery-placeholder"><div class="icon">🎨</div><div>6月 創意體驗</div></div><div class="overlay"><span class="overlay-text">6月 · 創意體驗課程</span></div></div>
-        <div class="gallery-item medium" onclick="openLightboxActivity('聖誕節活動')"><div class="gallery-placeholder"><div class="icon">🎄</div><div>12月 聖誕節活動</div></div><div class="overlay"><span class="overlay-text">12月 · 聖誕節活動</span></div></div>
-      </div>
-    </div>
-    <div id="gallery-m3" class="tab-content">
+
+    <!-- 3月：有照片 -->
+    <div id="gallery-m3" class="tab-content active">
       <a href="https://drive.google.com/drive/folders/1Hb2eRJXXKnOMB81J83SKpOANLcfey_vV" target="_blank" class="album-card">
-        <div class="album-preview-grid">
+        <div class="album-preview-grid" style="grid-template-columns:2fr 1fr;grid-template-rows:320px 320px;">
           <div class="preview-cell preview-main">
-            <img src="./assets/images/march-01.jpg" alt="元宵同學會">
+            <img src="./assets/images/march-01.jpg" alt="元宵同學會" loading="lazy" decoding="async">
           </div>
           <div class="preview-cell">
-            <img src="./assets/images/march-02.jpg" alt="元宵同學會">
+            <img src="./assets/images/march-02.jpg" alt="元宵同學會" loading="lazy" decoding="async">
           </div>
           <div class="preview-cell" style="position:relative;">
-            <img src="./assets/images/march-03.jpg" alt="元宵同學會">
+            <img src="./assets/images/march-03.jpg" alt="元宵同學會" loading="lazy" decoding="async">
             <div class="preview-count-overlay">查看全部 →</div>
           </div>
         </div>
@@ -518,46 +544,17 @@
           <div class="album-footer-btn">開啟相簿 →</div>
         </div>
       </a>
+      <p class="gallery-note">📷 照片持續更新中，精彩不斷！如有活動照片歡迎提供給福委會。</p>
     </div>
-    <div id="gallery-m5" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🗺️</div><div>大地遊戲闖關 · 偉康校慶籌碼爭霸戰</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🏃</div><div>闖關任務進行中</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🏆</div><div>頒獎典禮</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>合照時間</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎯</div><div>精彩關卡</div></div></div>
-    </div></div>
-    <div id="gallery-m6" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎨</div><div>創意體驗課程</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">✨</div><div>精彩成品</div></div></div>
-      <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">🖌️</div><div>大家的創作</div></div></div>
-    </div></div>
-    <div id="gallery-m8" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎤</div><div>KTV 音樂課 · 高歌一曲</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🎵</div><div>歌唱比賽</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎶</div><div>大合唱</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎸</div><div>才藝表演</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎹</div><div>壓軸演出</div></div></div>
-    </div></div>
-    <div id="gallery-m10" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🏅</div><div>全校運動會 · 奮力奔跑</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">⚽</div><div>精彩賽事</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🥇</div><div>冠軍出爐</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎽</div><div>啦啦隊加油</div></div></div>
-      <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">📸</div><div>全體合照</div></div></div>
-    </div></div>
-    <div id="gallery-m11" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">👨‍👩‍👧‍👦</div><div>家庭日 · 生存遊戲 · 校外教學</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🌳</div><div>戶外冒險</div></div></div>
-      <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">💚</div><div>家庭大合照</div></div></div>
-    </div></div>
-    <div id="gallery-m12" class="tab-content"><div class="gallery-grid">
-      <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎄</div><div>聖誕節活動 · 交換禮物</div></div></div>
-      <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🎁</div><div>禮物交換</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">⛄</div><div>聖誕裝扮</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🌟</div><div>年終派對</div></div></div>
-      <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>合照</div></div></div>
-    </div></div>
-    <p style="text-align:center;margin-top:32px;color:#bbb;font-size:13px;">📷 照片持續更新中！如有活動照片歡迎提供給福委會。</p>
+
+    <!-- Coming Soon tabs -->
+    <div id="gallery-m5" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">🗺️</div><div class="cs-title">5月 大地遊戲闖關</div><div class="cs-subtitle">偉康校慶 籌碼爭霸戰</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+    <div id="gallery-m6" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">🎨</div><div class="cs-title">6月 創意體驗</div><div class="cs-subtitle">課程活動 · 精彩成品展示</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+    <div id="gallery-m8" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">🎤</div><div class="cs-title">8月 KTV 音樂課</div><div class="cs-subtitle">高歌一曲，留下美好回憶</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+    <div id="gallery-m10" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">🏅</div><div class="cs-title">10月 全校運動會</div><div class="cs-subtitle">奮力奔跑，為榮譽而戰</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+    <div id="gallery-m11" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">👨‍👩‍👧‍👦</div><div class="cs-title">11月 家庭日</div><div class="cs-subtitle">生存遊戲 · 校外教學</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+    <div id="gallery-m12" class="tab-content"><div class="coming-soon-card"><div class="cs-inner"><div class="cs-emoji">🎄</div><div class="cs-title">12月 聖誕節活動</div><div class="cs-subtitle">歡慶年末，交換禮物</div><div class="cs-badge">📸 活動後上傳</div><div class="cs-dots"><span></span><span></span><span></span></div></div></div></div>
+
   </div>
 </section>
 
@@ -693,19 +690,11 @@ function closeLightbox(e) {
   }
 }
 
-document.getElementById('highlightsTabs').addEventListener('click', e => {
-  if (e.target.classList.contains('tab-btn')) {
-    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
-    e.target.classList.add('active');
-    const content = document.getElementById('gallery-' + e.target.dataset.tab);
-    if (content) content.classList.add('active');
-  }
-});
+
 
 const revealObserver = new IntersectionObserver(entries => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
-}, {threshold: 0.1});
+  entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); revealObserver.unobserve(e.target); } });
+}, {threshold: 0.1, rootMargin: '0px 0px -40px 0px'});
 
 function initReveal() { document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el)); }
 
@@ -725,6 +714,15 @@ const counterObserver = new IntersectionObserver(entries => {
 document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
 window.addEventListener('scroll', () => { document.getElementById('backToTop').classList.toggle('visible', window.scrollY > 400); });
 function toggleMenu() { document.getElementById('navLinks').classList.toggle('open'); }
+document.getElementById('highlightsTabs').addEventListener('click', e => {
+  if (e.target.classList.contains('tab-btn')) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    e.target.classList.add('active');
+    const content = document.getElementById('gallery-' + e.target.dataset.tab);
+    if (content) content.classList.add('active');
+  }
+});
 renderCalendar();
 setTimeout(initReveal, 100);
 </script>
