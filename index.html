@@ -1,0 +1,1866 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>偉康科技 福委會 2026</title>
+<style>
+  :root {
+    --teal: #0a6680;
+    --teal-dark: #084f62;
+    --teal-light: #1a8fa8;
+    --chalk-white: #f5f0e8;
+    --chalk-yellow: #f9e04b;
+    --chalk-green: #5cb85c;
+    --chalk-pink: #e8a4b8;
+    --chalk-blue: #7ec8e3;
+    --blackboard: #2d4a3e;
+    --blackboard-dark: #1e3329;
+    --wood: #8b5e3c;
+    --wood-light: #c4956a;
+    --grass: #4a8c3f;
+    --sky: #87ceeb;
+    --text-dark: #1a1a2e;
+    --text-mid: #444;
+    --white: #ffffff;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Segoe UI', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+    background: #f8f6f0;
+    color: var(--text-dark);
+    overflow-x: hidden;
+  }
+
+  /* ===== NAVBAR ===== */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 1000;
+    background: rgba(10,40,50,0.92);
+    backdrop-filter: blur(12px);
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 2px solid rgba(122,200,227,0.3);
+  }
+
+  .nav-logo img { height: 36px; }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: rgba(255,255,255,0.8);
+    text-decoration: none;
+    font-size: 14px;
+    letter-spacing: 0.5px;
+    position: relative;
+    transition: color 0.3s;
+  }
+
+  .nav-links a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px; left: 0; right: 100%;
+    height: 2px;
+    background: var(--chalk-yellow);
+    transition: right 0.3s;
+  }
+
+  .nav-links a:hover { color: var(--chalk-yellow); }
+  .nav-links a:hover::after { right: 0; }
+
+  .hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 5px;
+  }
+  .hamburger span {
+    display: block;
+    width: 24px; height: 2px;
+    background: white;
+    transition: all 0.3s;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #0a2833 0%, #0d3d50 40%, #1a6670 100%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+  }
+
+  /* Chalkboard texture overlay */
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: 
+      repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.04) 40px),
+      repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.02) 40px);
+    pointer-events: none;
+  }
+
+  .hero-deco-circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.08;
+    background: radial-gradient(circle, var(--teal-light), transparent);
+  }
+  .hero-deco-circle:nth-child(1) { width: 600px; height: 600px; top: -200px; right: -100px; }
+  .hero-deco-circle:nth-child(2) { width: 400px; height: 400px; bottom: -100px; left: -80px; background: radial-gradient(circle, #f9e04b, transparent); }
+
+  /* Floating chalk elements */
+  .chalk-float {
+    position: absolute;
+    font-size: 40px;
+    opacity: 0.12;
+    animation: floatUp 6s ease-in-out infinite;
+    pointer-events: none;
+  }
+  @keyframes floatUp {
+    0%,100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-20px) rotate(10deg); }
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 2;
+    padding: 120px 8% 80px;
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-badge {
+    display: inline-block;
+    background: rgba(249,224,75,0.15);
+    border: 1px solid rgba(249,224,75,0.4);
+    color: var(--chalk-yellow);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 13px;
+    letter-spacing: 2px;
+    margin-bottom: 28px;
+    animation: fadeInDown 0.8s ease;
+  }
+
+  .hero-title {
+    font-size: clamp(48px, 8vw, 90px);
+    font-weight: 900;
+    color: var(--white);
+    line-height: 1.0;
+    margin-bottom: 12px;
+    animation: fadeInUp 0.8s ease 0.2s both;
+  }
+
+  .hero-title .highlight {
+    color: var(--chalk-yellow);
+    position: relative;
+    display: inline-block;
+  }
+
+  .hero-title .highlight::after {
+    content: '';
+    position: absolute;
+    bottom: 4px; left: 0; right: 0;
+    height: 6px;
+    background: rgba(249,224,75,0.3);
+    border-radius: 3px;
+  }
+
+  .hero-subtitle {
+    font-size: clamp(20px, 3vw, 30px);
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 20px;
+    animation: fadeInUp 0.8s ease 0.4s both;
+    letter-spacing: 3px;
+  }
+
+  .hero-tagline {
+    font-size: clamp(14px, 1.5vw, 16px);
+    color: rgba(255,255,255,0.5);
+    max-width: 480px;
+    line-height: 1.8;
+    margin-bottom: 48px;
+    animation: fadeInUp 0.8s ease 0.5s both;
+  }
+
+  .hero-cta-group {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    animation: fadeInUp 0.8s ease 0.6s both;
+  }
+
+  .btn-primary {
+    background: var(--chalk-yellow);
+    color: var(--text-dark);
+    padding: 14px 36px;
+    border: none;
+    border-radius: 4px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+    letter-spacing: 1px;
+  }
+
+  .btn-primary:hover {
+    background: #fff;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(249,224,75,0.4);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--white);
+    padding: 13px 36px;
+    border: 2px solid rgba(255,255,255,0.4);
+    border-radius: 4px;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    display: inline-block;
+    transition: all 0.3s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--chalk-yellow);
+    color: var(--chalk-yellow);
+    transform: translateY(-3px);
+  }
+
+  /* Hero blackboard element */
+  .hero-blackboard {
+    position: absolute;
+    right: 4%;
+    top: 50%;
+    transform: translateY(-50%);
+    width: min(460px, 40vw);
+    background: #2a4a3e;
+    border-radius: 6px;
+    padding: 24px 28px 22px;
+    border: 10px solid var(--wood-light);
+    border-bottom-width: 14px;
+    box-shadow: 0 30px 80px rgba(0,0,0,0.5), inset 0 0 60px rgba(0,0,0,0.15), inset 0 0 0 1px rgba(255,255,255,0.04);
+    animation: fadeInRight 1s ease 0.4s both;
+    background-image:
+      repeating-linear-gradient(0deg, transparent, transparent 31px, rgba(255,255,255,0.03) 32px);
+  }
+
+  .hero-blackboard::before {
+    content: '';
+    position: absolute;
+    inset: 6px;
+    border: 1px solid rgba(255,255,255,0.06);
+    border-radius: 1px;
+    pointer-events: none;
+  }
+
+  /* SVG doodle drawings on blackboard */
+  .bb-doodle {
+    position: absolute;
+    opacity: 0.18;
+    pointer-events: none;
+  }
+
+  /* Star doodle top-right */
+  .bb-star { top: 14px; right: 20px; }
+  /* Lightbulb bottom-left */
+  .bb-bulb { bottom: 30px; left: 16px; }
+  /* Arrow doodle */
+  .bb-arrow { top: 50%; right: 14px; transform: translateY(-50%); }
+
+  .bb-scribble {
+    position: absolute;
+    opacity: 0.12;
+    pointer-events: none;
+  }
+
+  /* Animated chalk dust particles */
+  .chalk-dust {
+    position: absolute;
+    width: 3px; height: 3px;
+    background: rgba(255,255,255,0.6);
+    border-radius: 50%;
+    pointer-events: none;
+    animation: dustFloat var(--dd, 4s) ease-in-out var(--ddelay, 0s) infinite;
+  }
+
+  @keyframes dustFloat {
+    0%   { transform: translate(0,0) scale(1); opacity: 0.6; }
+    50%  { transform: translate(var(--dx,5px), -12px) scale(0.6); opacity: 0.3; }
+    100% { transform: translate(var(--dx2,8px), -24px) scale(0); opacity: 0; }
+  }
+
+  .bb-activity-pills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .bb-pill {
+    font-size: 11px;
+    padding: 4px 10px;
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 20px;
+    color: rgba(255,255,255,0.7);
+    letter-spacing: 0.3px;
+    transition: all 0.3s;
+    cursor: default;
+  }
+
+  .bb-pill:hover {
+    background: rgba(255,255,255,0.12);
+    color: white;
+    border-color: rgba(255,255,255,0.5);
+  }
+
+  .bb-pill.yellow { border-color: rgba(249,224,75,0.5); color: rgba(249,224,75,0.85); }
+  .bb-pill.blue   { border-color: rgba(126,200,227,0.5); color: rgba(126,200,227,0.85); }
+  .bb-pill.green  { border-color: rgba(92,184,92,0.5); color: rgba(92,184,92,0.85); }
+  .bb-pill.pink   { border-color: rgba(232,164,184,0.5); color: rgba(232,164,184,0.85); }
+
+  .bb-year-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(249,224,75,0.12);
+    border: 1px solid rgba(249,224,75,0.35);
+    border-radius: 4px;
+    padding: 4px 12px;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: rgba(249,224,75,0.8);
+    margin-bottom: 10px;
+  }
+
+  .bb-big-word {
+    font-size: clamp(48px, 5.5vw, 64px);
+    font-weight: 900;
+    color: var(--chalk-yellow);
+    display: block;
+    text-align: center;
+    margin: 2px 0 4px;
+    text-shadow: 0 0 30px rgba(249,224,75,0.4), 2px 2px 0 rgba(0,0,0,0.3);
+    letter-spacing: 16px;
+    position: relative;
+  }
+
+  .bb-big-word::after {
+    content: '';
+    display: block;
+    width: 60%;
+    margin: 4px auto 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, rgba(249,224,75,0.5), transparent);
+    border-radius: 1px;
+  }
+
+  .bb-slogan {
+    text-align: center;
+    font-size: 11px;
+    color: rgba(255,255,255,0.4);
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+  }
+
+  .chalk-text {
+    color: rgba(255,255,255,0.9);
+    font-size: clamp(13px, 1.5vw, 16px);
+    line-height: 2.2;
+    font-family: 'Segoe UI', 'PingFang TC', sans-serif;
+  }
+
+  .chalk-text .year-word {
+    font-size: clamp(38px, 5vw, 60px);
+    font-weight: 900;
+    color: var(--chalk-yellow);
+    display: block;
+    text-align: center;
+    margin: 12px 0;
+    text-shadow: 0 0 20px rgba(249,224,75,0.5);
+    letter-spacing: 12px;
+  }
+
+  .chalk-divider {
+    border: none;
+    border-top: 1px solid rgba(255,255,255,0.15);
+    margin: 10px 0;
+  }
+
+  .chalk-list {
+    list-style: none;
+    margin-top: 8px;
+  }
+
+  .chalk-list li {
+    color: rgba(255,255,255,0.75);
+    font-size: 13px;
+    padding: 4px 0;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .chalk-list li::before {
+    content: '✓';
+    color: var(--chalk-yellow);
+    font-size: 11px;
+  }
+
+  .chalk-erased {
+    opacity: 0.3;
+    text-decoration: line-through;
+  }
+
+  .board-tray {
+    position: absolute;
+    bottom: -12px; left: -8px; right: -8px;
+    height: 20px;
+    background: linear-gradient(var(--wood-light), var(--wood));
+    border-radius: 0 0 4px 4px;
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    gap: 6px;
+  }
+
+  .chalk-piece {
+    width: 20px; height: 6px;
+    background: rgba(255,255,255,0.7);
+    border-radius: 3px;
+  }
+  .chalk-piece:nth-child(2) { width: 14px; background: rgba(249,224,75,0.7); }
+  .chalk-piece:nth-child(3) { width: 16px; background: rgba(126,200,227,0.7); }
+
+  /* Scroll indicator */
+  .scroll-indicator {
+    position: absolute;
+    bottom: 36px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    color: rgba(255,255,255,0.4);
+    font-size: 11px;
+    letter-spacing: 2px;
+    animation: bounce 2s infinite;
+  }
+
+  .scroll-indicator::after {
+    content: '';
+    width: 1px;
+    height: 40px;
+    background: linear-gradient(rgba(255,255,255,0.4), transparent);
+  }
+
+  @keyframes bounce {
+    0%,100% { transform: translateX(-50%) translateY(0); }
+    50% { transform: translateX(-50%) translateY(8px); }
+  }
+
+  /* ===== SECTION BASE ===== */
+  section { position: relative; }
+
+  .section-header {
+    text-align: center;
+    margin-bottom: 60px;
+  }
+
+  .section-tag {
+    display: inline-block;
+    font-size: 11px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--teal);
+    background: rgba(10,102,128,0.08);
+    padding: 5px 16px;
+    border-radius: 20px;
+    margin-bottom: 14px;
+    font-weight: 600;
+  }
+
+  .section-title {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 900;
+    line-height: 1.1;
+    color: var(--text-dark);
+  }
+
+  .section-title em {
+    font-style: normal;
+    color: var(--teal);
+  }
+
+  .section-desc {
+    font-size: 16px;
+    color: var(--text-mid);
+    margin-top: 14px;
+    line-height: 1.7;
+  }
+
+  /* ===== YEAR WORD SECTION ===== */
+  #year-word {
+    padding: 100px 8%;
+    background: var(--blackboard-dark);
+    overflow: hidden;
+  }
+
+  .year-word-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+  }
+
+  .year-word-left .section-tag { color: var(--chalk-yellow); background: rgba(249,224,75,0.1); }
+  .year-word-left .section-title { color: var(--white); }
+  .year-word-left .section-desc { color: rgba(255,255,255,0.6); }
+
+  .big-word-display {
+    font-size: clamp(100px, 18vw, 180px);
+    font-weight: 900;
+    color: transparent;
+    -webkit-text-stroke: 2px rgba(249,224,75,0.6);
+    line-height: 1;
+    letter-spacing: 20px;
+    text-align: center;
+    position: relative;
+    animation: wordGlow 3s ease-in-out infinite;
+  }
+
+  @keyframes wordGlow {
+    0%,100% { -webkit-text-stroke: 2px rgba(249,224,75,0.6); filter: none; }
+    50% { -webkit-text-stroke: 2px rgba(249,224,75,1); filter: drop-shadow(0 0 20px rgba(249,224,75,0.5)); }
+  }
+
+  .year-word-cards {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-top: 32px;
+  }
+
+  .word-card {
+    background: rgba(255,255,255,0.05);
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 8px;
+    padding: 20px;
+    transition: all 0.3s;
+  }
+
+  .word-card:hover {
+    background: rgba(249,224,75,0.1);
+    border-color: rgba(249,224,75,0.3);
+    transform: translateY(-4px);
+  }
+
+  .word-card-icon { font-size: 24px; margin-bottom: 8px; }
+  .word-card-title { color: var(--chalk-yellow); font-size: 15px; font-weight: 700; margin-bottom: 6px; }
+  .word-card-desc { color: rgba(255,255,255,0.6); font-size: 13px; line-height: 1.6; }
+
+  /* ===== ACTIVITY CALENDAR ===== */
+  #calendar {
+    padding: 100px 8%;
+    background: #f8f6f0;
+    position: relative;
+  }
+
+  /* Grass strip decoration */
+  #calendar::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--grass), #6abf5e, var(--grass));
+  }
+
+  .calendar-inner { max-width: 1100px; margin: 0 auto; }
+
+  .month-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+  }
+
+  .month-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+    transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+    cursor: pointer;
+    position: relative;
+  }
+
+  .month-card:hover {
+    transform: translateY(-8px) rotate(-0.5deg);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+  }
+
+  .month-card.empty {
+    background: #f0ede6;
+    opacity: 0.6;
+  }
+
+  .month-card-header {
+    padding: 18px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .month-num {
+    font-size: 40px;
+    font-weight: 900;
+    line-height: 1;
+    color: rgba(0,0,0,0.08);
+  }
+
+  .month-label {
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    color: rgba(0,0,0,0.4);
+  }
+
+  .month-tag {
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+
+  .tag-indoor { background: #e3f2fd; color: #1565c0; }
+  .tag-outdoor { background: #e8f5e9; color: #2e7d32; }
+  .tag-welfare { background: #fff3e0; color: #e65100; }
+  .tag-special { background: #fce4ec; color: #880e4f; }
+
+  .month-card-body {
+    padding: 0 20px 20px;
+    border-top: 1px solid #f0f0f0;
+    padding-top: 16px;
+  }
+
+  .activity-name {
+    font-size: 18px;
+    font-weight: 800;
+    color: var(--text-dark);
+    margin-bottom: 6px;
+  }
+
+  .activity-theme {
+    font-size: 13px;
+    color: var(--text-mid);
+    line-height: 1.6;
+  }
+
+  .month-card-footer {
+    padding: 12px 20px;
+    background: #fafafa;
+    border-top: 1px solid #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .view-detail-btn {
+    font-size: 12px;
+    color: var(--teal);
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: gap 0.2s;
+  }
+
+  .view-detail-btn:hover { gap: 8px; }
+
+  .activity-icon { font-size: 24px; }
+
+  /* Special month highlight */
+  .month-card.highlight-yellow .month-num { color: rgba(249,200,0,0.2); }
+  .month-card.highlight-yellow { border-top: 3px solid var(--chalk-yellow); }
+  .month-card.highlight-green { border-top: 3px solid var(--chalk-green); }
+  .month-card.highlight-teal { border-top: 3px solid var(--teal); }
+  .month-card.highlight-pink { border-top: 3px solid var(--chalk-pink); }
+
+  /* ===== ACTIVITY HIGHLIGHTS ===== */
+  #highlights {
+    padding: 100px 8%;
+    background: white;
+    position: relative;
+    overflow: hidden;
+  }
+
+  /* Background track/field deco */
+  #highlights::after {
+    content: '';
+    position: absolute;
+    bottom: -60px;
+    right: -60px;
+    width: 300px;
+    height: 300px;
+    border: 40px solid rgba(10,102,128,0.04);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .highlights-inner { max-width: 1100px; margin: 0 auto; }
+
+  .highlights-tabs {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin-bottom: 48px;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 0;
+  }
+
+  .tab-btn {
+    padding: 12px 24px;
+    border: none;
+    background: none;
+    font-size: 14px;
+    font-weight: 600;
+    color: #999;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    transition: all 0.2s;
+    letter-spacing: 0.5px;
+  }
+
+  .tab-btn:hover { color: var(--teal); }
+  .tab-btn.active { color: var(--teal); border-bottom-color: var(--teal); }
+
+  .tab-content { display: none; }
+  .tab-content.active { display: block; }
+
+  .gallery-grid {
+    display: grid;
+    grid-template-columns: repeat(12, 1fr);
+    gap: 16px;
+  }
+
+  .gallery-item {
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+    background: #eee;
+  }
+
+  .gallery-item img, .gallery-item video {
+    width: 100%; height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s;
+    display: block;
+  }
+
+  .gallery-item:hover img, .gallery-item:hover video { transform: scale(1.05); }
+
+  .gallery-item .overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0,0,0,0.6) 0%, transparent 60%);
+    opacity: 0;
+    transition: opacity 0.3s;
+    display: flex;
+    align-items: flex-end;
+    padding: 16px;
+  }
+
+  .gallery-item:hover .overlay { opacity: 1; }
+
+  .overlay-text {
+    color: white;
+    font-size: 14px;
+    font-weight: 600;
+  }
+
+  .gallery-item.large { grid-column: span 7; }
+  .gallery-item.medium { grid-column: span 5; }
+  .gallery-item.small { grid-column: span 4; }
+  .gallery-item.wide { grid-column: span 8; }
+
+  .gallery-placeholder {
+    aspect-ratio: 16/9;
+    background: linear-gradient(135deg, #e8e4dc, #d0ccc4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    color: #aaa;
+    font-size: 13px;
+  }
+
+  .gallery-placeholder .icon { font-size: 36px; opacity: 0.5; }
+
+  .large .gallery-placeholder { aspect-ratio: 4/3; }
+  .medium .gallery-placeholder { aspect-ratio: 4/3; }
+  .small .gallery-placeholder { aspect-ratio: 1/1; }
+  .wide .gallery-placeholder { aspect-ratio: 21/9; }
+
+  .highlight-empty-state {
+    text-align: center;
+    padding: 80px 20px;
+    color: #bbb;
+  }
+  .highlight-empty-state .big-icon { font-size: 60px; margin-bottom: 16px; }
+  .highlight-empty-state p { font-size: 16px; }
+
+  /* ===== PLAYGROUND SECTION - Upcoming CTA ===== */
+  .playground-banner {
+    background: linear-gradient(120deg, var(--grass) 0%, #3a7a34 100%);
+    padding: 80px 8%;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .playground-banner::before {
+    content: '🏃 🎽 🏅 ⚽ 🎤 🎵';
+    position: absolute;
+    font-size: 80px;
+    opacity: 0.08;
+    right: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    letter-spacing: 20px;
+    white-space: nowrap;
+  }
+
+  .playground-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+
+  .playground-text .label {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: rgba(255,255,255,0.7);
+    margin-bottom: 12px;
+    font-weight: 600;
+  }
+
+  .playground-text h2 {
+    font-size: clamp(28px, 4vw, 44px);
+    font-weight: 900;
+    color: white;
+    line-height: 1.2;
+    margin-bottom: 16px;
+  }
+
+  .playground-text p {
+    color: rgba(255,255,255,0.75);
+    font-size: 15px;
+    line-height: 1.7;
+    max-width: 460px;
+  }
+
+  .upcoming-events {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    min-width: 260px;
+  }
+
+  .upcoming-event {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 10px;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: all 0.3s;
+  }
+
+  .upcoming-event:hover {
+    background: rgba(255,255,255,0.18);
+    transform: translateX(6px);
+  }
+
+  .event-month {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: rgba(255,255,255,0.6);
+  }
+
+  .event-name {
+    font-size: 15px;
+    font-weight: 700;
+    color: white;
+  }
+
+  .event-icon { font-size: 28px; }
+
+  /* ===== FOOTER ===== */
+  footer {
+    background: var(--blackboard-dark);
+    padding: 60px 8% 30px;
+  }
+
+  .footer-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 40px;
+    padding-bottom: 40px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+  }
+
+  .footer-logo img { height: 32px; margin-bottom: 14px; filter: brightness(0) invert(1); }
+  .footer-desc { color: rgba(255,255,255,0.5); font-size: 13px; line-height: 1.8; }
+
+  .footer-title {
+    color: var(--chalk-yellow);
+    font-size: 13px;
+    letter-spacing: 2px;
+    font-weight: 700;
+    margin-bottom: 16px;
+  }
+
+  .footer-links { list-style: none; }
+  .footer-links li { margin-bottom: 10px; }
+  .footer-links a {
+    color: rgba(255,255,255,0.5);
+    text-decoration: none;
+    font-size: 13px;
+    transition: color 0.2s;
+  }
+  .footer-links a:hover { color: white; }
+
+  .footer-bottom {
+    max-width: 1100px;
+    margin: 24px auto 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+  }
+
+  .footer-copy {
+    color: rgba(255,255,255,0.3);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+
+  .footer-heart { color: var(--chalk-yellow); }
+
+  /* ===== ANIMATIONS ===== */
+  @keyframes fadeInDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeInRight { from { opacity: 0; transform: translateX(40px) translateY(-50%); } to { opacity: 1; transform: translateX(0) translateY(-50%); } }
+
+  /* Intersection Observer animations */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .reveal-delay-1 { transition-delay: 0.1s; }
+  .reveal-delay-2 { transition-delay: 0.2s; }
+  .reveal-delay-3 { transition-delay: 0.3s; }
+  .reveal-delay-4 { transition-delay: 0.4s; }
+
+  /* ===== STATS BAR ===== */
+  .stats-bar {
+    background: var(--teal-dark);
+    padding: 32px 8%;
+    overflow: hidden;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+
+  .stat-item {
+    text-align: center;
+    color: white;
+    min-width: 120px;
+  }
+
+  .stat-number {
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 900;
+    color: var(--chalk-yellow);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-size: 12px;
+    color: rgba(255,255,255,0.6);
+    letter-spacing: 1px;
+  }
+
+  .stat-divider {
+    width: 1px;
+    background: rgba(255,255,255,0.15);
+    align-self: stretch;
+    min-height: 40px;
+  }
+
+  /* ===== MOBILE ===== */
+  @media (max-width: 900px) {
+    .hero-blackboard { display: none; }
+    .hero-content { text-align: center; }
+    .hero-cta-group { justify-content: center; }
+    .hero-tagline { margin: 0 auto 48px; }
+    .year-word-inner { grid-template-columns: 1fr; text-align: center; }
+    .year-word-cards { justify-items: center; }
+    .footer-inner { grid-template-columns: 1fr; }
+    .stat-divider { display: none; }
+    .gallery-item.large, .gallery-item.medium, .gallery-item.wide { grid-column: span 12; }
+    .gallery-item.small { grid-column: span 6; }
+  }
+
+  @media (max-width: 768px) {
+    .nav-links { display: none; flex-direction: column; position: absolute; top: 64px; left: 0; right: 0; background: rgba(10,40,50,0.98); padding: 24px; gap: 20px; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .month-grid { grid-template-columns: 1fr 1fr; }
+    .gallery-item.small { grid-column: span 12; }
+    .playground-inner { flex-direction: column; }
+    .highlights-tabs { overflow-x: auto; flex-wrap: nowrap; }
+    .tab-btn { white-space: nowrap; }
+  }
+
+  @media (max-width: 480px) {
+    .month-grid { grid-template-columns: 1fr; }
+    nav { padding: 12px 5%; }
+  }
+
+  /* ===== LIGHTBOX ===== */
+  .lightbox {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background: rgba(0,0,0,0.9);
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  .lightbox.open { display: flex; }
+
+  .lightbox-content {
+    background: white;
+    border-radius: 16px;
+    overflow: hidden;
+    max-width: 680px;
+    width: 100%;
+    max-height: 90vh;
+    overflow-y: auto;
+    animation: lightboxIn 0.3s ease;
+  }
+
+  @keyframes lightboxIn {
+    from { opacity: 0; transform: scale(0.9); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+  .lightbox-header {
+    padding: 20px 24px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid #eee;
+    background: var(--blackboard-dark);
+    color: white;
+  }
+
+  .lightbox-title { font-size: 20px; font-weight: 800; }
+
+  .lightbox-close {
+    background: rgba(255,255,255,0.1);
+    border: none;
+    color: white;
+    width: 32px; height: 32px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+  }
+
+  .lightbox-close:hover { background: rgba(255,255,255,0.25); }
+
+  .lightbox-body { padding: 28px; }
+
+  .detail-item {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+
+  .detail-icon { font-size: 20px; flex-shrink: 0; margin-top: 2px; }
+
+  .detail-label {
+    font-size: 11px;
+    letter-spacing: 1px;
+    color: #999;
+    font-weight: 600;
+    margin-bottom: 4px;
+  }
+
+  .detail-value {
+    font-size: 15px;
+    color: var(--text-dark);
+    font-weight: 600;
+    line-height: 1.5;
+  }
+
+  /* Chalk effect text for blackboard sections */
+  .chalk-writing {
+    font-family: 'Segoe UI', sans-serif;
+    position: relative;
+  }
+
+  /* Running track decoration */
+  .track-deco {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 60px;
+    overflow: hidden;
+    pointer-events: none;
+  }
+
+  .track-line {
+    position: absolute;
+    bottom: 20px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: rgba(255,255,255,0.15);
+  }
+
+  .track-line:nth-child(2) { bottom: 30px; }
+
+  /* ===== BACK TO TOP ===== */
+  .back-to-top {
+    position: fixed;
+    bottom: 32px;
+    right: 32px;
+    width: 48px;
+    height: 48px;
+    background: var(--teal);
+    color: white;
+    border: none;
+    border-radius: 50%;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(10,102,128,0.4);
+    transition: all 0.3s;
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  .back-to-top.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  .back-to-top:hover {
+    background: var(--teal-dark);
+    transform: translateY(-3px);
+  }
+
+  /* Decorative floating emojis in hero */
+  .float-deco {
+    position: absolute;
+    font-size: 22px;
+    animation: floatUp var(--dur, 5s) ease-in-out var(--delay, 0s) infinite;
+    opacity: 0.15;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav id="navbar">
+  <a class="nav-logo" href="#"><img src="data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTgwIiBoZWlnaHQ9IjQ4IiB2aWV3Qm94PSIwIDAgMTgwIDQ4IiBmaWxsPSJub25lIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjx0ZXh0IHg9IjAiIHk9IjMwIiBmb250LWZhbWlseT0iQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtd2VpZ2h0PSI3MDAiIGZvbnQtc2l6ZT0iMjYiIGZpbGw9IiNmNWYwZTgiPndlYmNvbW08L3RleHQ+PHRleHQgeD0iMCIgeT0iNDYiIGZvbnQtZmFtaWx5PSJBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMCIgZmlsbD0icmdiYSgyNDUsMjQwLDIzMiwwLjUpIj5XZSBtYWtlIHlvdXIgYnVzaW5lc3Mgc21hcnRlcjwvdGV4dD48L3N2Zz4=" alt="Webcomm Logo"></a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#calendar">年度活動</a></li>
+    <li><a href="#highlights">精彩回顧</a></li>
+    <li><a href="#upcoming">活動預告</a></li>
+    <li><a href="#year-word">年度代表字</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-deco-circle"></div>
+  <div class="hero-deco-circle"></div>
+
+  <!-- Floating campus elements -->
+  <div class="float-deco" style="top:15%;left:8%;--dur:7s;--delay:0s;font-size:58px;">📚</div>
+  <div class="float-deco" style="top:70%;left:12%;--dur:5s;--delay:1s;font-size:52px;">✏️</div>
+  <div class="float-deco" style="top:30%;left:25%;--dur:9s;--delay:2s;font-size:64px;">🎒</div>
+  <div class="float-deco" style="top:80%;right:8%;--dur:6s;--delay:0.5s;font-size:60px;">🏃</div>
+  <div class="float-deco" style="top:18%;right:5%;--dur:8s;--delay:3s;font-size:56px;">🎤</div>
+
+  <div class="hero-content">
+    <div class="hero-badge">🎓 偉康科技 · 福委會 · 2026</div>
+    <h1 class="hero-title">
+      讓每位<span class="highlight">同事</span><br>
+      都是最棒的<br>
+      <span class="highlight">同學</span>
+    </h1>
+
+    <p class="hero-tagline">今年度的代表字是「同協」，讓我們像同學一樣，<br>「同心協力」、攜手並進，共同打造美好的偉康大家庭。</p>
+    <div class="hero-cta-group">
+      <a href="#calendar" class="btn-primary">📅 查看年度活動</a>
+      <a href="#highlights" class="btn-outline">✨ 精彩回顧</a>
+    </div>
+  </div>
+
+  <!-- Blackboard Element -->
+  <div class="hero-blackboard">
+
+    <!-- chalk dust particles -->
+    <div class="chalk-dust" style="bottom:28px;left:60px;--dd:3.2s;--ddelay:0s;--dx:4px;--dx2:7px;"></div>
+    <div class="chalk-dust" style="bottom:28px;left:72px;--dd:4s;--ddelay:0.8s;--dx:-3px;--dx2:2px;"></div>
+    <div class="chalk-dust" style="bottom:28px;left:86px;--dd:3.6s;--ddelay:1.4s;--dx:6px;--dx2:10px;"></div>
+
+    <!-- SVG doodles: star cluster top-right -->
+    <svg class="bb-doodle bb-star" width="60" height="50" viewBox="0 0 60 50" fill="none">
+      <polygon points="12,2 14,9 22,9 16,14 18,21 12,17 6,21 8,14 2,9 10,9" fill="white"/>
+      <polygon points="42,6 43.5,11 49,11 44.5,14.5 46,19.5 42,16.5 38,19.5 39.5,14.5 35,11 40.5,11" fill="white" opacity="0.7"/>
+      <circle cx="54" cy="8" r="2.5" fill="white" opacity="0.5"/>
+      <circle cx="28" cy="4" r="1.5" fill="white" opacity="0.4"/>
+    </svg>
+
+    <!-- SVG doodle: running figure bottom-right -->
+    <svg class="bb-doodle" style="bottom:36px;right:20px;opacity:0.15;" width="52" height="52" viewBox="0 0 52 52" fill="none">
+      <!-- stick figure running -->
+      <circle cx="36" cy="8" r="5" stroke="white" stroke-width="2"/>
+      <line x1="36" y1="13" x2="32" y2="26" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="32" y1="26" x2="20" y2="32" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="32" y1="26" x2="40" y2="30" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="32" y1="26" x2="26" y2="40" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="26" y1="40" x2="18" y2="48" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="32" y1="26" x2="38" y2="38" stroke="white" stroke-width="2" stroke-linecap="round"/>
+      <line x1="38" y1="38" x2="46" y2="42" stroke="white" stroke-width="2" stroke-linecap="round"/>
+    </svg>
+
+    <!-- SVG doodle: music notes top-left -->
+    <svg class="bb-doodle" style="top:12px;left:14px;opacity:0.15;" width="48" height="44" viewBox="0 0 48 44" fill="none">
+      <text x="2" y="22" font-size="18" fill="white">♪</text>
+      <text x="22" y="14" font-size="14" fill="white">♫</text>
+      <text x="34" y="26" font-size="12" fill="white">♩</text>
+    </svg>
+
+    <!-- SVG doodle: trophy -->
+    <svg class="bb-doodle" style="bottom:36px;right:70px;opacity:0.13;" width="34" height="36" viewBox="0 0 34 36" fill="none">
+      <path d="M8 2 h18 v14 a9 9 0 0 1-18 0 Z" stroke="white" stroke-width="2" fill="none"/>
+      <path d="M8 8 H4 a4 4 0 0 0 4 8" stroke="white" stroke-width="1.5" fill="none"/>
+      <path d="M26 8 h4 a4 4 0 0 1-4 8" stroke="white" stroke-width="1.5" fill="none"/>
+      <line x1="17" y1="16" x2="17" y2="28" stroke="white" stroke-width="2"/>
+      <rect x="10" y="28" width="14" height="4" rx="1" stroke="white" stroke-width="1.5" fill="none"/>
+    </svg>
+
+    <!-- SVG: wavy underline under 同協 -->
+
+    <!-- Main content -->
+    <div class="chalk-text">
+      <div class="bb-year-badge" style="margin-bottom:6px;">
+        <svg width="10" height="10" viewBox="0 0 10 10"><circle cx="5" cy="5" r="4" stroke="rgba(249,224,75,0.8)" stroke-width="1" fill="none"/><circle cx="5" cy="5" r="1.5" fill="rgba(249,224,75,0.8)"/></svg>
+        2026 年度代表字
+      </div>
+
+      <span class="bb-big-word">同協</span>
+      <div class="bb-slogan">WE COOPERATE · WE GROW</div>
+
+      <hr class="chalk-divider">
+
+      <ul class="chalk-list">
+        <li>「同心協力」，攜手打拼</li>
+        <li>一起歡笑，一起成長</li>
+        <li>回憶滿滿，收穫豐碩</li>
+      </ul>
+
+      <hr class="chalk-divider">
+
+      <div style="font-size:11px;opacity:0.45;letter-spacing:1px;margin-bottom:10px;">✦ 2026 全年度精彩活動</div>
+      <div class="bb-activity-pills">
+        <span class="bb-pill yellow">🧩 猜謎</span>
+        <span class="bb-pill green">🗺️ 大地遊戲</span>
+        <span class="bb-pill blue">🎨 創意體驗</span>
+        <span class="bb-pill pink">🎤 KTV</span>
+        <span class="bb-pill yellow">🏅 運動會</span>
+        <span class="bb-pill green">👨‍👩‍👧‍👦 家庭日</span>
+        <span class="bb-pill pink">🎄 聖誕節</span>
+      </div>
+    </div>
+
+    <div class="board-tray">
+      <div class="chalk-piece"></div>
+      <div class="chalk-piece"></div>
+      <div class="chalk-piece"></div>
+      <div class="chalk-piece"></div>
+    </div>
+  </div>
+
+  <div class="scroll-indicator">SCROLL</div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar">
+  <div class="stats-inner">
+    <div class="stat-item reveal">
+      <div class="stat-number" data-count="10">0</div>
+      <div class="stat-label">年度活動場次</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-1">
+      <div class="stat-number" data-count="365">0</div>
+      <div class="stat-label">天的美好陪伴</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-2">
+      <div class="stat-number" data-count="100">0</div>
+      <div class="stat-label">位同學一起</div>
+    </div>
+    <div class="stat-divider"></div>
+    <div class="stat-item reveal reveal-delay-3">
+      <div class="stat-number" data-count="1">0</div>
+      <div class="stat-label">個大家庭</div>
+    </div>
+  </div>
+</div>
+
+<!-- CALENDAR -->
+<section id="calendar">
+  <div class="calendar-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">📅 年度活動規劃</div>
+      <h2 class="section-title">2026 活動<em> 行事曆</em></h2>
+      <p class="section-desc">每個月都有精彩活動等著你，快來看看有哪些好玩的事！</p>
+    </div>
+    <div class="month-grid" id="monthGrid">
+      <!-- Cards inserted by JS -->
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS -->
+<section id="highlights">
+  <div class="highlights-inner">
+    <div class="section-header reveal">
+      <div class="section-tag">📸 精彩回顧</div>
+      <h2 class="section-title">每一刻都是<em> 珍貴回憶</em></h2>
+      <p class="section-desc">點選各活動，重溫那些歡笑與感動的瞬間</p>
+    </div>
+
+    <div class="highlights-tabs" id="highlightsTabs">
+      <button class="tab-btn active" data-tab="all">全部活動</button>
+      <button class="tab-btn" data-tab="m3">3月 猜謎活動</button>
+      <button class="tab-btn" data-tab="m5">5月 大地遊戲</button>
+      <button class="tab-btn" data-tab="m6">6月 創意體驗</button>
+      <button class="tab-btn" data-tab="m8">8月 KTV</button>
+      <button class="tab-btn" data-tab="m10">10月 運動會</button>
+      <button class="tab-btn" data-tab="m11">11月 家庭日</button>
+      <button class="tab-btn" data-tab="m12">12月 聖誕節</button>
+    </div>
+
+    <div id="gallery-all" class="tab-content active">
+      <div class="gallery-grid">
+        <div class="gallery-item large" onclick="openLightboxActivity('大地遊戲闖關')">
+          <div class="gallery-placeholder">
+            <div class="icon">🗺️</div>
+            <div>5月 大地遊戲闖關</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">5月 · 大地遊戲闖關</span></div>
+        </div>
+        <div class="gallery-item medium" onclick="openLightboxActivity('KTV 音樂課')">
+          <div class="gallery-placeholder">
+            <div class="icon">🎤</div>
+            <div>8月 KTV 音樂課</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">8月 · KTV 音樂課</span></div>
+        </div>
+        <div class="gallery-item small" onclick="openLightboxActivity('猜謎活動')">
+          <div class="gallery-placeholder">
+            <div class="icon">🧩</div>
+            <div>3月 猜謎</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">3月 · 猜謎活動</span></div>
+        </div>
+        <div class="gallery-item small" onclick="openLightboxActivity('運動會')">
+          <div class="gallery-placeholder">
+            <div class="icon">🏅</div>
+            <div>10月 運動會</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">10月 · 運動會</span></div>
+        </div>
+        <div class="gallery-item small" onclick="openLightboxActivity('家庭日')">
+          <div class="gallery-placeholder">
+            <div class="icon">👨‍👩‍👧‍👦</div>
+            <div>11月 家庭日</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">11月 · 家庭日生存遊戲</span></div>
+        </div>
+        <div class="gallery-item wide" onclick="openLightboxActivity('創意體驗')">
+          <div class="gallery-placeholder">
+            <div class="icon">🎨</div>
+            <div>6月 創意體驗</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">6月 · 創意體驗課程</span></div>
+        </div>
+        <div class="gallery-item medium" onclick="openLightboxActivity('聖誕節活動')">
+          <div class="gallery-placeholder">
+            <div class="icon">🎄</div>
+            <div>12月 聖誕節活動</div>
+          </div>
+          <div class="overlay"><span class="overlay-text">12月 · 聖誕節活動</span></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Individual tab contents - show empty state -->
+    <div id="gallery-m3" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item wide">
+          <div class="gallery-placeholder"><div class="icon">🧩</div><div>元宵同學會 · 吃湯圓搶紅包</div></div>
+          <div class="overlay"><span class="overlay-text">猜謎活動精彩瞬間</span></div>
+        </div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>更多照片</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>更多照片</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m5" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🗺️</div><div>大地遊戲闖關 · 偉康校慶籌碼爭霸戰</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🏃</div><div>闖關任務進行中</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🏆</div><div>頒獎典禮</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>合照時間</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎯</div><div>精彩關卡</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m6" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎨</div><div>創意體驗課程</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">✨</div><div>精彩成品</div></div></div>
+        <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">🖌️</div><div>大家的創作</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m8" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎤</div><div>KTV 音樂課 · 高歌一曲</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🎵</div><div>歌唱比賽</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎶</div><div>大合唱</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎸</div><div>才藝表演</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎹</div><div>壓軸演出</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m10" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🏅</div><div>全校運動會 · 奮力奔跑</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">⚽</div><div>精彩賽事</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🥇</div><div>冠軍出爐</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🎽</div><div>啦啦隊加油</div></div></div>
+        <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">📸</div><div>全體合照</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m11" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">👨‍👩‍👧‍👦</div><div>家庭日 · 生存遊戲 · 校外教學</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🌳</div><div>戶外冒險</div></div></div>
+        <div class="gallery-item wide"><div class="gallery-placeholder"><div class="icon">💚</div><div>家庭大合照</div></div></div>
+      </div>
+    </div>
+
+    <div id="gallery-m12" class="tab-content">
+      <div class="gallery-grid">
+        <div class="gallery-item large"><div class="gallery-placeholder"><div class="icon">🎄</div><div>聖誕節活動 · 交換禮物</div></div></div>
+        <div class="gallery-item medium"><div class="gallery-placeholder"><div class="icon">🎁</div><div>禮物交換</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">⛄</div><div>聖誕裝扮</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">🌟</div><div>年終派對</div></div></div>
+        <div class="gallery-item small"><div class="gallery-placeholder"><div class="icon">📸</div><div>合照</div></div></div>
+      </div>
+    </div>
+
+    <p style="text-align:center;margin-top:32px;color:#bbb;font-size:13px;">
+      📷 照片持續更新中，精彩不斷！如有活動照片歡迎提供給福委會。
+    </p>
+  </div>
+</section>
+
+<!-- PLAYGROUND BANNER -->
+<div class="playground-banner" id="upcoming">
+  <div class="playground-inner">
+    <div class="playground-text reveal">
+      <div class="label">🏃 UPCOMING EVENTS</div>
+      <h2>還有更多精彩<br>活動等著你！</h2>
+      <p>每一場活動都是大家共同創造的回憶，<br>快揪好同學一起參加，讓每次都留下最美好的瞬間！</p>
+    </div>
+    <div class="upcoming-events reveal reveal-delay-2">
+      <div class="upcoming-event">
+        <div class="event-icon">🎤</div>
+        <div>
+          <div class="event-month">8月 · 年度固定活動</div>
+          <div class="event-name">KTV 音樂課</div>
+        </div>
+      </div>
+      <div class="upcoming-event">
+        <div class="event-icon">🏅</div>
+        <div>
+          <div class="event-month">10月 · 年度固定活動</div>
+          <div class="event-name">全校運動會</div>
+        </div>
+      </div>
+      <div class="upcoming-event">
+        <div class="event-icon">👨‍👩‍👧‍👦</div>
+        <div>
+          <div class="event-month">11月</div>
+          <div class="event-name">家庭日 · 生存遊戲</div>
+        </div>
+      </div>
+      <div class="upcoming-event">
+        <div class="event-icon">🎄</div>
+        <div>
+          <div class="event-month">12月</div>
+          <div class="event-name">聖誕節活動</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- YEAR WORD SECTION -->
+<section id="year-word">
+  <div class="year-word-inner">
+    <div class="year-word-left reveal">
+      <div class="section-tag">✦ 2026 年度代表字</div>
+      <h2 class="section-title" style="color:white;">今年，我們都是<br><em style="color:var(--chalk-yellow);">同學</em></h2>
+      <p class="section-desc" style="color:rgba(255,255,255,0.6);margin-top:20px;">
+        就像回到校園的那段青春歲月，同學之間沒有距離，<br>
+        只有共同奮鬥的回憶與彼此的支持。<br>
+        偉康的每一位夥伴，都是我們最好的同學！
+      </p>
+      <div class="year-word-cards">
+        <div class="word-card reveal reveal-delay-1">
+          <div class="word-card-icon">🤝</div>
+          <div class="word-card-title">同心</div>
+          <div class="word-card-desc">齊心合力，打造最強的偉康團隊</div>
+        </div>
+        <div class="word-card reveal reveal-delay-2">
+          <div class="word-card-icon">🌱</div>
+          <div class="word-card-title">共學</div>
+          <div class="word-card-desc">一起學習成長，不斷精進自己</div>
+        </div>
+        <div class="word-card reveal reveal-delay-3">
+          <div class="word-card-icon">🎉</div>
+          <div class="word-card-title">同樂</div>
+          <div class="word-card-desc">把歡笑帶進生活，一起享受每一刻</div>
+        </div>
+        <div class="word-card reveal reveal-delay-4">
+          <div class="word-card-icon">🏆</div>
+          <div class="word-card-title">共創</div>
+          <div class="word-card-desc">攜手創造屬於我們的精彩故事</div>
+        </div>
+      </div>
+    </div>
+    <div class="reveal reveal-delay-2" style="text-align:center;">
+      <div class="big-word-display">同學</div>
+      <p style="color:rgba(255,255,255,0.4);font-size:13px;letter-spacing:3px;margin-top:16px;">WE ARE CLASSMATES</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">
+        <svg width="140" height="36" viewBox="0 0 140 36"><text x="0" y="24" font-family="Arial, sans-serif" font-weight="700" font-size="22" fill="#f5f0e8">webcomm</text><text x="0" y="34" font-family="Arial, sans-serif" font-size="9" fill="rgba(245,240,232,0.4)">We make your business smarter</text></svg>
+      </div>
+      <p class="footer-desc">偉康科技福委會，致力於為每位同事<br>打造最棒的工作生活體驗。<br>讓我們一起成為最棒的「同學」！</p>
+    </div>
+    <div>
+      <div class="footer-title">快速導覽</div>
+      <ul class="footer-links">
+        <li><a href="#year-word">2026 代表字「同學」</a></li>
+        <li><a href="#calendar">年度活動行事曆</a></li>
+        <li><a href="#highlights">精彩活動回顧</a></li>
+        <li><a href="#upcoming">即將到來的活動</a></li>
+      </ul>
+    </div>
+    <div>
+      <div class="footer-title">年度亮點活動</div>
+      <ul class="footer-links">
+        <li><a href="#">🧩 元宵猜謎活動</a></li>
+        <li><a href="#">🗺️ 大地遊戲闖關</a></li>
+        <li><a href="#">🎤 KTV 音樂課</a></li>
+        <li><a href="#">🏅 全校運動會</a></li>
+        <li><a href="#">🎄 聖誕節活動</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-copy">© 2026 偉康科技 Webcomm Technology. 福委會製作 <span class="footer-heart">♥</span></div>
+    <div class="footer-copy">We Make Your Business Smarter · 同心協力 共創美好</div>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <div class="lightbox-content">
+    <div class="lightbox-header">
+      <span class="lightbox-title" id="lightboxTitle">活動詳情</span>
+      <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+    </div>
+    <div class="lightbox-body" id="lightboxBody"></div>
+  </div>
+</div>
+
+<!-- Back to top -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+// ===== DATA =====
+const activities = [
+  { month: 1, name: null, theme: null, icon: '📅', tag: null, highlight: '' },
+  { month: 2, name: null, theme: null, icon: '📅', tag: null, highlight: '' },
+  { month: 3, name: '公司內・猜謎活動', theme: '【福委會活動】元宵同學會：吃湯圓搶紅包', icon: '🧩', tag: 'tag-welfare', highlight: 'highlight-yellow' },
+  { month: 4, name: null, theme: null, icon: '📅', tag: null, highlight: '' },
+  { month: 5, name: '公司內・大地遊戲闖關', theme: '【福委會活動】偉康校慶 籌碼爭霸戰', icon: '🗺️', tag: 'tag-outdoor', highlight: 'highlight-green' },
+  { month: 6, name: '公司外・課程活動', theme: '【福委會活動】創意體驗', icon: '🎨', tag: 'tag-indoor', highlight: 'highlight-teal' },
+  { month: 7, name: null, theme: null, icon: '📅', tag: null, highlight: '' },
+  { month: 8, name: 'KTV', theme: '音樂課', icon: '🎤', tag: 'tag-indoor', highlight: 'highlight-pink' },
+  { month: 9, name: null, theme: null, icon: '📅', tag: null, highlight: '' },
+  { month: 10, name: '運動會', theme: '【福委會活動】全校運動會', icon: '🏅', tag: 'tag-outdoor', highlight: 'highlight-yellow' },
+  { month: 11, name: '家庭日・生存遊戲', theme: '【福委會活動】校外教學', icon: '👨‍👩‍👧‍👦', tag: 'tag-outdoor', highlight: 'highlight-green' },
+  { month: 12, name: '公司內・聖誕節活動', theme: '（歡慶年末）', icon: '🎄', tag: 'tag-special', highlight: 'highlight-pink' },
+];
+
+const tagLabels = {
+  'tag-indoor': { text: '公司內', },
+  'tag-outdoor': { text: '戶外活動', },
+  'tag-welfare': { text: '福委活動', },
+  'tag-special': { text: '節慶活動', },
+};
+
+// ===== RENDER CALENDAR =====
+function renderCalendar() {
+  const grid = document.getElementById('monthGrid');
+  activities.forEach(a => {
+    const card = document.createElement('div');
+    card.className = `month-card ${a.name ? a.highlight : 'empty'} reveal`;
+    if (a.name) {
+      card.onclick = () => openActivityDetail(a);
+      card.innerHTML = `
+        <div class="month-card-header">
+          <div>
+            <div class="month-num">${String(a.month).padStart(2,'0')}</div>
+            <div class="month-label">${a.month} 月</div>
+          </div>
+          ${a.tag ? `<span class="month-tag ${a.tag}">${tagLabels[a.tag].text}</span>` : ''}
+        </div>
+        <div class="month-card-body">
+          <div class="activity-name">${a.icon} ${a.name}</div>
+          <div class="activity-theme">${a.theme}</div>
+        </div>
+        <div class="month-card-footer">
+          <span class="activity-icon">${a.icon}</span>
+          <span class="view-detail-btn">查看詳情 →</span>
+        </div>
+      `;
+    } else {
+      card.innerHTML = `
+        <div class="month-card-header" style="justify-content:flex-start;gap:12px;">
+          <div>
+            <div class="month-num">${String(a.month).padStart(2,'0')}</div>
+            <div class="month-label">${a.month} 月</div>
+          </div>
+          <span style="font-size:13px;color:#bbb;margin-top:8px;">敬請期待</span>
+        </div>
+      `;
+    }
+    grid.appendChild(card);
+  });
+}
+
+// ===== ACTIVITY DETAIL LIGHTBOX =====
+function openActivityDetail(a) {
+  document.getElementById('lightboxTitle').textContent = `${a.icon} ${a.month}月 · ${a.name}`;
+  document.getElementById('lightboxBody').innerHTML = `
+    <div class="detail-item">
+      <div class="detail-icon">📅</div>
+      <div>
+        <div class="detail-label">活動月份</div>
+        <div class="detail-value">2026 年 ${a.month} 月</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-icon">🎯</div>
+      <div>
+        <div class="detail-label">活動主題</div>
+        <div class="detail-value">${a.theme}</div>
+      </div>
+    </div>
+    <div class="detail-item">
+      <div class="detail-icon">📍</div>
+      <div>
+        <div class="detail-label">活動類型</div>
+        <div class="detail-value">${a.tag ? tagLabels[a.tag].text : '活動'}</div>
+      </div>
+    </div>
+    <div style="background:#f8f6f0;border-radius:8px;padding:20px;margin-top:8px;text-align:center;color:#aaa;font-size:13px;">
+      📸 活動照片與影片持續更新中<br>
+      <span style="font-size:11px;margin-top:6px;display:block;">歡迎提供精彩照片給福委會！</span>
+    </div>
+  `;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function openLightboxActivity(name) {
+  document.getElementById('lightboxTitle').textContent = name;
+  document.getElementById('lightboxBody').innerHTML = `
+    <div style="text-align:center;padding:40px 20px;color:#aaa;">
+      <div style="font-size:48px;margin-bottom:16px;">📸</div>
+      <p style="font-size:15px;font-weight:600;color:#555;margin-bottom:8px;">${name}</p>
+      <p style="font-size:13px;">照片與影片持續上傳中，敬請期待！</p>
+    </div>
+  `;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox(e) {
+  if (!e || e.target === document.getElementById('lightbox')) {
+    document.getElementById('lightbox').classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+// ===== TABS =====
+document.getElementById('highlightsTabs').addEventListener('click', e => {
+  if (e.target.classList.contains('tab-btn')) {
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.querySelectorAll('.tab-content').forEach(c => c.classList.remove('active'));
+    e.target.classList.add('active');
+    const tab = e.target.dataset.tab;
+    const content = document.getElementById('gallery-' + tab);
+    if (content) content.classList.add('active');
+  }
+});
+
+// ===== INTERSECTION OBSERVER =====
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+    }
+  });
+}, { threshold: 0.1 });
+
+function initReveal() {
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+}
+
+// ===== COUNTER =====
+function animateCounter(el, target, duration = 1500) {
+  let start = 0;
+  const step = target / (duration / 16);
+  const tick = () => {
+    start = Math.min(start + step, target);
+    el.textContent = Math.floor(start) + (target > 100 ? '' : '');
+    if (start < target) requestAnimationFrame(tick);
+  };
+  tick();
+}
+
+const counterObserver = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const target = parseInt(e.target.dataset.count);
+      animateCounter(e.target, target);
+      counterObserver.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.5 });
+
+document.querySelectorAll('[data-count]').forEach(el => counterObserver.observe(el));
+
+// ===== BACK TO TOP =====
+const backBtn = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+  backBtn.classList.toggle('visible', window.scrollY > 400);
+});
+
+// ===== HAMBURGER =====
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ===== INIT =====
+renderCalendar();
+setTimeout(initReveal, 100);
+</script>
+</body>
+</html>
