@@ -70,6 +70,7 @@
   .bb-pill.blue { border-color: rgba(126,200,227,0.5); color: rgba(126,200,227,0.85); }
   .bb-pill.green { border-color: rgba(92,184,92,0.5); color: rgba(92,184,92,0.85); }
   .bb-pill.pink { border-color: rgba(232,164,184,0.5); color: rgba(232,164,184,0.85); }
+  .bb-pill.brown { border-color: rgba(188,152,126,0.6); color: rgba(210,180,158,0.9); }
   .bb-year-badge { display: inline-flex; align-items: center; gap: 6px; background: rgba(249,224,75,0.12); border: 1px solid rgba(249,224,75,0.35); border-radius: 4px; padding: 4px 12px; font-size: 11px; letter-spacing: 2px; color: rgba(249,224,75,0.8); }
   .bb-big-word { font-size: clamp(48px, 5.5vw, 64px); font-weight: 900; color: var(--chalk-yellow); display: block; text-align: center; margin: 2px 0 4px; text-shadow: 0 0 30px rgba(249,224,75,0.4), 2px 2px 0 rgba(0,0,0,0.3); letter-spacing: 16px; position: relative; }
   .bb-big-word::after { content: ''; display: block; width: 60%; margin: 4px auto 0; height: 2px; background: linear-gradient(90deg, transparent, rgba(249,224,75,0.5), transparent); border-radius: 1px; }
@@ -112,8 +113,8 @@
   .month-num { font-size: 40px; font-weight: 900; line-height: 1; color: rgba(0,0,0,0.08); }
   .month-label { font-size: 12px; font-weight: 600; letter-spacing: 1px; color: rgba(0,0,0,0.4); }
   .month-tag { font-size: 11px; padding: 4px 10px; border-radius: 20px; font-weight: 600; letter-spacing: 0.5px; }
-  .tag-indoor { background: #e3f2fd; color: #1565c0; }
-  .tag-outdoor { background: #e8f5e9; color: #2e7d32; }
+  .tag-indoor { background: #efebe9; color: #5d4037; }
+  .tag-outdoor { background: #e3f2fd; color: #1565c0; }
   .tag-welfare { background: #fff3e0; color: #e65100; }
   .tag-special { background: #fce4ec; color: #880e4f; }
   .month-card-body { padding: 0 20px 20px; border-top: 1px solid #f0f0f0; padding-top: 16px; }
@@ -127,6 +128,8 @@
   .month-card.highlight-green { border-top: 3px solid var(--chalk-green); }
   .month-card.highlight-teal { border-top: 3px solid var(--teal); }
   .month-card.highlight-pink { border-top: 3px solid var(--chalk-pink); }
+  .month-card.highlight-blue { border-top: 3px solid #7ec8e3; }
+  .month-card.highlight-brown { border-top: 3px solid #bc987e; }
 
   #highlights { padding: 100px 8%; background: white; position: relative; overflow: hidden; }
   #highlights::after { content: ''; position: absolute; bottom: -60px; right: -60px; width: 300px; height: 300px; border: 40px solid rgba(10,102,128,0.04); border-radius: 50%; pointer-events: none; }
@@ -210,13 +213,13 @@
   .album-footer-title { font-size: 16px; font-weight: 800; color: white; margin-bottom: 3px; }
   .album-footer-sub { font-size: 12px; color: rgba(255,255,255,0.55); letter-spacing: 0.5px; }
   .album-footer-btn {
-    background: var(--chalk-yellow); color: var(--text-dark);
+    background: white; color: var(--text-dark);
     padding: 9px 20px; border-radius: 4px;
     font-size: 13px; font-weight: 700;
     position: relative; z-index: 1;
     transition: all 0.2s; white-space: nowrap; flex-shrink: 0;
   }
-  .album-card:hover .album-footer-btn { background: white; transform: translateX(4px); }
+  .album-card:hover .album-footer-btn { background: var(--chalk-yellow); color: var(--text-dark); transform: translateX(4px); }
 
   .playground-banner { background: linear-gradient(120deg, var(--grass) 0%, #3a7a34 100%); padding: 80px 8%; position: relative; overflow: hidden; }
   .playground-banner::before { content: '🏃 🎽 🏅 ⚽ 🎤 🎵'; position: absolute; font-size: 80px; opacity: 0.08; right: 5%; top: 50%; transform: translateY(-50%); letter-spacing: 20px; white-space: nowrap; }
@@ -400,12 +403,12 @@
       <hr class="chalk-divider">
       <div style="font-size:11px;opacity:0.45;letter-spacing:1px;margin-bottom:10px;">✦ 2026 全年度精彩活動</div>
       <div class="bb-activity-pills">
-        <span class="bb-pill yellow">🧩 猜謎</span>
-        <span class="bb-pill green">🗺️ 大地遊戲</span>
+        <span class="bb-pill pink">🧩 猜謎</span>
+        <span class="bb-pill brown">🗺️ 大地遊戲</span>
         <span class="bb-pill blue">🎨 創意體驗</span>
-        <span class="bb-pill pink">🎤 KTV</span>
-        <span class="bb-pill yellow">🏅 運動會</span>
-        <span class="bb-pill green">👨‍👩‍👧‍👦 家庭日</span>
+        <span class="bb-pill blue">🎤 KTV</span>
+        <span class="bb-pill blue">🏅 運動會</span>
+        <span class="bb-pill blue">👨‍👩‍👧‍👦 家庭日</span>
         <span class="bb-pill pink">🎄 聖誕節</span>
       </div>
     </div>
@@ -641,18 +644,18 @@
 const activities = [
   {month:1,name:null,theme:null,icon:'📅',tag:null,highlight:''},
   {month:2,name:null,theme:null,icon:'📅',tag:null,highlight:''},
-  {month:3,name:'公司內・猜謎活動',theme:'【福委會活動】元宵同學會：吃湯圓搶紅包',icon:'🧩',tag:'tag-welfare',highlight:'highlight-yellow'},
+  {month:3,name:'公司內・猜謎活動',theme:'【福委會活動】元宵同學會：吃湯圓搶紅包',icon:'🧩',tag:'tag-special',highlight:'highlight-pink'},
   {month:4,name:null,theme:null,icon:'📅',tag:null,highlight:''},
-  {month:5,name:'公司內・大地遊戲闖關',theme:'【福委會活動】偉康校慶 籌碼爭霸戰',icon:'🗺️',tag:'tag-outdoor',highlight:'highlight-green'},
-  {month:6,name:'公司外・課程活動',theme:'【福委會活動】創意體驗',icon:'🎨',tag:'tag-indoor',highlight:'highlight-teal'},
+  {month:5,name:'公司內・大地遊戲闖關',theme:'【福委會活動】偉康校慶 籌碼爭霸戰',icon:'🗺️',tag:'tag-indoor',highlight:'highlight-brown'},
+  {month:6,name:'公司外・課程活動',theme:'【福委會活動】創意體驗',icon:'🎨',tag:'tag-outdoor',highlight:'highlight-blue'},
   {month:7,name:null,theme:null,icon:'📅',tag:null,highlight:''},
-  {month:8,name:'KTV',theme:'音樂課',icon:'🎤',tag:'tag-indoor',highlight:'highlight-pink'},
+  {month:8,name:'KTV',theme:'音樂課',icon:'🎤',tag:'tag-outdoor',highlight:'highlight-blue'},
   {month:9,name:null,theme:null,icon:'📅',tag:null,highlight:''},
-  {month:10,name:'運動會',theme:'【福委會活動】全校運動會',icon:'🏅',tag:'tag-outdoor',highlight:'highlight-yellow'},
-  {month:11,name:'家庭日・生存遊戲',theme:'【福委會活動】校外教學',icon:'👨‍👩‍👧‍👦',tag:'tag-outdoor',highlight:'highlight-green'},
+  {month:10,name:'運動會',theme:'【福委會活動】全校運動會',icon:'🏅',tag:'tag-outdoor',highlight:'highlight-blue'},
+  {month:11,name:'家庭日・生存遊戲',theme:'【福委會活動】校外教學',icon:'👨‍👩‍👧‍👦',tag:'tag-outdoor',highlight:'highlight-blue'},
   {month:12,name:'公司內・聖誕節活動',theme:'（歡慶年末）',icon:'🎄',tag:'tag-special',highlight:'highlight-pink'},
 ];
-const tagLabels = {'tag-indoor':'公司內','tag-outdoor':'戶外活動','tag-welfare':'福委活動','tag-special':'節慶活動'};
+const tagLabels = {'tag-indoor':'公司內','tag-outdoor':'公司外','tag-welfare':'福委活動','tag-special':'節慶活動'};
 
 function renderCalendar() {
   const grid = document.getElementById('monthGrid');
